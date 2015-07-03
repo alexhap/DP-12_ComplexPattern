@@ -9,7 +9,7 @@ public class DuckFactory extends AbstractDuckFactory {
         return new MallardDuck();
     }
 
-    public Quackable createRedHeadDuck() {
+    public Quackable createRedheadDuck() {
         return new RedHeadDuck();
     }
 
@@ -19,5 +19,9 @@ public class DuckFactory extends AbstractDuckFactory {
 
     public Quackable createRubberDuck() {
         return new RubberDuck();
+    }
+
+    public Quackable createGooseDuck() {
+        return new GooseAdapter(new Goose());
     }
 }
