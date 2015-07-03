@@ -4,8 +4,9 @@
  */
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Flock implements Quackable {
+public class Flock extends Observable implements Quackable {
 
     ArrayList<Quackable> quackers = new ArrayList<>();
 
@@ -13,15 +14,13 @@ public class Flock implements Quackable {
         quackers.add(quacker);
     }
 
-    public void registerObserver(Observer observer) {
-        for (Quackable quacker : quackers)
-            quacker.registerObserver(observer);
-    }
-
-    public void notifyObservers() { }
-
     public void quack() {
-        for (Quackable quacker : quackers)
+        for (Quackable quacker : quackers) {
             quacker.quack();
+            if (!(quacker instanceof Flock)) {
+                setChanged();
+                notifyObservers(quacker.toString());
+            }
+        }
     }
 }

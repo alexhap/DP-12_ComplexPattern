@@ -3,25 +3,12 @@
  *
  */
 
-public class RubberDuck implements Quackable {
+import java.util.Observable;
 
-    private Observable observable;
-
-    public RubberDuck() {
-        this.observable = new Observable(this);
-    }
-
-    public void registerObserver(Observer observer) {
-        observable.registerObserver(observer);
-    }
-
-    public void notifyObservers() {
-        observable.notifyObservers();
-    }
+public class RubberDuck extends Observable implements Quackable {
 
     public void quack() {
         System.out.println("Squeack");
-        notifyObservers();
     }
 
     public String toString() {

@@ -3,21 +3,15 @@
  *
  */
 
-public class QuackCounter implements Quackable {
+import java.util.Observable;
+
+public class QuackCounter extends Observable implements Quackable {
 
     private Quackable duck;
     private static int quackCounter;
 
     public QuackCounter(Quackable duck) {
         this.duck = duck;
-    }
-
-    public void registerObserver(Observer observer) {
-        duck.registerObserver(observer);
-    }
-
-    public void notifyObservers() {
-        duck.notifyObservers();
     }
 
     public static int getQuacks() {
@@ -27,6 +21,9 @@ public class QuackCounter implements Quackable {
     public void quack() {
         duck.quack();
         quackCounter++;
-//        notifyObservers();
+    }
+
+    public String toString() {
+        return duck.toString();
     }
 }

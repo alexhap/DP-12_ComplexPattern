@@ -3,6 +3,7 @@
  *
  */
 
-public interface Quackable extends QuackObservable {
-    void quack();
+public interface Quackable {
+   void quack();
+   String toString();
 }

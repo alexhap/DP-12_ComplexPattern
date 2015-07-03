@@ -3,8 +3,12 @@
  *
  */
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class Quackologist implements Observer {
-    public void update(QuackObservable duck) {
-        System.out.println("Quackologist: " + duck + " just quacked.");
+
+    public void update(Observable duck, Object arg) {
+        System.out.println("Quackologist: " + arg + " just quacked.\n");
     }
 }
